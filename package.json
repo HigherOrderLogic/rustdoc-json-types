@@ -1,0 +1,24 @@
+{
+  "name": "rustdoc-json-types",
+  "version": "0.1.0",
+  "description": "TS bindings for rustdoc-json-types",
+  "repository": "HigherOrderLogic/rustdoc-json-types",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/bindings/index.d.ts"
+    }
+  },
+  "types": "./dist/bindings/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "cargo test && unbuild",
+    "prepack": "yarn build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0"
+  },
+  "packageManager": "yarn@3.6.3"
+}
