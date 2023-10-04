@@ -31,5 +31,5 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
 
-      - name: Build module
+      - name: Build
         run: yarn run build
