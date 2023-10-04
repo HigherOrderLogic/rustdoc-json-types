@@ -1,0 +1,35 @@
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+name: Continuous Integration
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+    
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Build module
+        run: yarn run build
