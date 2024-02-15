@@ -10,15 +10,17 @@
     }
   },
   "types": "./dist/bindings/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "cargo test && unbuild",
     "prepack": "yarn build"
   },
   "devDependencies": {
-    "@types/node": "^20.8.2",
-    "typescript": "^5.2.2",
+    "@types/node": "^20.11.17",
+    "typescript": "^5.3.3",
     "unbuild": "^2.0.0"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@4.1.0"
 }
