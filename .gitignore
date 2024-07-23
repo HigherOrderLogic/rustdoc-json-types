@@ -1,6 +1,5 @@
 .yarn/install-state.gz
 .yarn/build-state.yml
-bindings
 dist
 node_modules
 target

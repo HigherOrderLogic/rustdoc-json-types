@@ -28,7 +28,7 @@ fn main() {
 
     #[test]
     fn export_format_version() {
-        let dest_path = Path::new(\"./bindings\").join(\"version.ts\");
+        let dest_path = Path::new(\"./bindings\").join(\"__version.ts\");
         let mut f = File::create(&dest_path).unwrap();
         f.write_all(format!(\"export const FORMAT_VERSION = {}\", FORMAT_VERSION).as_bytes()).unwrap();
     }
