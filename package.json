@@ -22,5 +22,5 @@
     "typescript": "^5.4.2",
     "unbuild": "^2.0.0"
   },
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.3.1"
 }
