@@ -1,0 +1,36 @@
+name: Update bindings
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  update-definitions:
+    name: Update bindings
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          registry-url: https://registry.npmjs.org/
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Update bindings
+        run: yarn run build
+      - name: Commit and PR changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: automatically update bindings"
+          title: "chore: automatically update bindings"
+          body: Update TS bindings
+          branch: workflow/update-bindings
