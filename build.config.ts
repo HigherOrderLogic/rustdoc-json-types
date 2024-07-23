@@ -2,7 +2,7 @@ import { readdirSync, open, write, unlink } from 'node:fs'
 import { defineBuildConfig  } from 'unbuild'
 
 export default defineBuildConfig({
-    entries: ["./bindings/index"],
+    entries: ["./bindings"],
     declaration: true,
     hooks: {
         "build:prepare": (_) => {

@@ -6,10 +6,10 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/bindings/index.d.ts"
+      "types": "./dist/bindings.d.ts"
     }
   },
-  "types": "./dist/bindings/index.d.ts",
+  "types": "./dist/bindings.d.ts",
   "files": [
     "dist"
   ],
