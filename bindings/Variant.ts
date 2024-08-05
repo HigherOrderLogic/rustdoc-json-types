@@ -2,6 +2,9 @@
 import type { Discriminant } from "./Discriminant";
 import type { VariantKind } from "./VariantKind";
 
+/**
+ * A variant of an enum.
+ */
 export type Variant = { 
 /**
  * Whether the variant is plain, a tuple-like, or struct-like. Contains the fields.

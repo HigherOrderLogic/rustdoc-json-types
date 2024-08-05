@@ -2,7 +2,38 @@
 import type { GenericBound } from "./GenericBound";
 import type { Type } from "./Type";
 
-export type GenericParamDefKind = { "lifetime": { outlives: Array<string>, } } | { "type": { bounds: Array<GenericBound>, default: Type | null, 
+/**
+ * The kind of a [`GenericParamDef`].
+ */
+export type GenericParamDefKind = { "lifetime": { 
+/**
+ * Lifetimes that this lifetime parameter is required to outlive.
+ *
+ * ```rust
+ * fn f<'a, 'b, 'resource: 'a + 'b>(a: &'a str, b: &'b str, res: &'resource str) {}
+ * //                      ^^^^^^^
+ * ```
+ */
+outlives: Array<string>, } } | { "type": { 
+/**
+ * Bounds applied directly to the type. Note that the bounds from `where` clauses
+ * that constrain this parameter won't appear here.
+ *
+ * ```rust
+ * fn default2<T: Default>() -> [T; 2] where T: Clone { todo!() }
+ * //             ^^^^^^^
+ * ```
+ */
+bounds: Array<GenericBound>, 
+/**
+ * The default type for this parameter, if provided, e.g.
+ *
+ * ```rust
+ * trait PartialEq<Rhs = Self> {}
+ * //                    ^^^^
+ * ```
+ */
+default: Type | null, 
 /**
  * This is normally `false`, which means that this generic parameter is
  * declared in the Rust source text.
@@ -28,4 +59,13 @@ export type GenericParamDefKind = { "lifetime": { outlives: Array<string>, } } |
  * is bound by `Trait`) is synthetic, because it was not originally in
  * the Rust source text.
  */
-synthetic: boolean, } } | { "const": { type: Type, default: string | null, } };
+synthetic: boolean, } } | { "const": { 
+/**
+ * The type of the constant as declared.
+ */
+type: Type, 
+/**
+ * The stringified expression for the default value, if provided. It's not guaranteed that
+ * it'll match the actual source code for the default value.
+ */
+default: string | null, } };

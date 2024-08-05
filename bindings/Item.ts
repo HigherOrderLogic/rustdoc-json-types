@@ -5,6 +5,12 @@ import type { ItemEnum } from "./ItemEnum";
 import type { Span } from "./Span";
 import type { Visibility } from "./Visibility";
 
+/**
+ * Anything that can hold documentation - modules, structs, enums, functions, traits, etc.
+ *
+ * The `Item` data type holds fields that can apply to any of these,
+ * and leaves kind-specific details (like function args or enum variants) to the `inner` field.
+ */
 export type Item = { 
 /**
  * The unique identifier of this item. Can be used to find this item in various mappings.
@@ -41,4 +47,12 @@ links: { [key: string]: Id },
 /**
  * Stringified versions of the attributes on this item (e.g. `"#[inline]"`)
  */
-attrs: Array<string>, deprecation: Deprecation | null, inner: ItemEnum, };
+attrs: Array<string>, 
+/**
+ * Information about the item’s deprecation, if present.
+ */
+deprecation: Deprecation | null, 
+/**
+ * The type-specific fields describing this item.
+ */
+inner: ItemEnum, };

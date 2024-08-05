@@ -3,4 +3,32 @@ import type { GenericArg } from "./GenericArg";
 import type { Type } from "./Type";
 import type { TypeBinding } from "./TypeBinding";
 
-export type GenericArgs = { "angle_bracketed": { args: Array<GenericArg>, bindings: Array<TypeBinding>, } } | { "parenthesized": { inputs: Array<Type>, output: Type | null, } };
+/**
+ * A set of generic arguments provided to a path segment, e.g.
+ *
+ * ```text
+ * std::option::Option::<u32>::None
+ *                      ^^^^^
+ * ```
+ */
+export type GenericArgs = { "angle_bracketed": { 
+/**
+ * The list of each argument on this type.
+ * ```text
+ * <'a, 32, B: Copy, C = u32>
+ *  ^^^^^^
+ * ```
+ */
+args: Array<GenericArg>, 
+/**
+ * Associated type or constant bindings (e.g. `Item=i32` or `Item: Clone`) for this type.
+ */
+bindings: Array<TypeBinding>, } } | { "parenthesized": { 
+/**
+ * The input types, enclosed in parentheses.
+ */
+inputs: Array<Type>, 
+/**
+ * The output type provided after the `->`, if present.
+ */
+output: Type | null, } };

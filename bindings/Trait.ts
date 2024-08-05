@@ -3,4 +3,36 @@ import type { GenericBound } from "./GenericBound";
 import type { Generics } from "./Generics";
 import type { Id } from "./Id";
 
-export type Trait = { is_auto: boolean, is_unsafe: boolean, is_object_safe: boolean, items: Array<Id>, generics: Generics, bounds: Array<GenericBound>, implementations: Array<Id>, };
+/**
+ * A `trait` declaration.
+ */
+export type Trait = { 
+/**
+ * Whether the trait is marked `auto` and is thus implemented automatically
+ * for all aplicable types.
+ */
+is_auto: boolean, 
+/**
+ * Whether the trait is marked as `unsafe`.
+ */
+is_unsafe: boolean, 
+/**
+ * Whether the trait is [object safe](https://doc.rust-lang.org/reference/items/traits.html#object-safety).
+ */
+is_object_safe: boolean, 
+/**
+ * Associated [`Item`]s that can/must be implemented by the `impl` blocks.
+ */
+items: Array<Id>, 
+/**
+ * Information about the type parameters and `where` clauses of the trait.
+ */
+generics: Generics, 
+/**
+ * Constraints that must be met by the implementor of the trait.
+ */
+bounds: Array<GenericBound>, 
+/**
+ * The implementations of the trait.
+ */
+implementations: Array<Id>, };

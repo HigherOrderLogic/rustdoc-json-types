@@ -7,7 +7,6 @@ import type { Generics } from "./Generics";
 import type { Impl } from "./Impl";
 import type { Import } from "./Import";
 import type { Module } from "./Module";
-import type { OpaqueTy } from "./OpaqueTy";
 import type { Primitive } from "./Primitive";
 import type { ProcMacro } from "./ProcMacro";
 import type { Static } from "./Static";
@@ -19,12 +18,60 @@ import type { TypeAlias } from "./TypeAlias";
 import type { Union } from "./Union";
 import type { Variant } from "./Variant";
 
-export type ItemEnum = { "module": Module } | { "extern_crate": { name: string, rename: string | null, } } | { "import": Import } | { "union": Union } | { "struct": Struct } | { "struct_field": Type } | { "enum": Enum } | { "variant": Variant } | { "function": Function } | { "trait": Trait } | { "trait_alias": TraitAlias } | { "impl": Impl } | { "type_alias": TypeAlias } | { "opaque_ty": OpaqueTy } | { "constant": { type: Type, const: Constant, } } | { "static": Static } | "foreign_type" | { "macro": string } | { "proc_macro": ProcMacro } | { "primitive": Primitive } | { "assoc_const": { type: Type, 
 /**
- * e.g. `const X: usize = 5;`
+ * Specific fields of an item.
+ *
+ * Part of [`Item`].
  */
-default: string | null, } } | { "assoc_type": { generics: Generics, bounds: Array<GenericBound>, 
+export type ItemEnum = { "module": Module } | { "extern_crate": { 
 /**
- * e.g. `type X = usize;`
+ * The name of the imported crate.
+ */
+name: string, 
+/**
+ * If the crate is renamed, this is its name in the crate.
+ */
+rename: string | null, } } | { "import": Import } | { "union": Union } | { "struct": Struct } | { "struct_field": Type } | { "enum": Enum } | { "variant": Variant } | { "function": Function } | { "trait": Trait } | { "trait_alias": TraitAlias } | { "impl": Impl } | { "type_alias": TypeAlias } | { "constant": { 
+/**
+ * The type of the constant.
+ */
+type: Type, 
+/**
+ * The declared constant itself.
+ */
+const: Constant, } } | { "static": Static } | "foreign_type" | { "macro": string } | { "proc_macro": ProcMacro } | { "primitive": Primitive } | { "assoc_const": { 
+/**
+ * The type of the constant.
+ */
+type: Type, 
+/**
+ * The stringified expression for the default value, if provided, e.g.
+ * ```rust
+ * const X: usize = 640 * 1024;
+ * //               ^^^^^^^^^^
+ * ```
+ */
+default: string | null, } } | { "assoc_type": { 
+/**
+ * The generic parameters and where clauses on ahis associated type.
+ */
+generics: Generics, 
+/**
+ * The bounds for this associated type. e.g.
+ * ```rust
+ * trait IntoIterator {
+ *     type Item;
+ *     type IntoIter: Iterator<Item = Self::Item>;
+ * //                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * }
+ * ```
+ */
+bounds: Array<GenericBound>, 
+/**
+ * The default for this type, if provided, e.g.
+ * ```rust
+ * type X = usize;
+ * //       ^^^^^
+ * ```
  */
 default: Type | null, } };

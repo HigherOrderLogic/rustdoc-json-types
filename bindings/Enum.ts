@@ -2,4 +2,25 @@
 import type { Generics } from "./Generics";
 import type { Id } from "./Id";
 
-export type Enum = { generics: Generics, variants_stripped: boolean, variants: Array<Id>, impls: Array<Id>, };
+/**
+ * An `enum`.
+ */
+export type Enum = { 
+/**
+ * Information about the type parameters and `where` clauses of the enum.
+ */
+generics: Generics, 
+/**
+ * Whether any variants have been removed from the result, due to being private or hidden.
+ */
+variants_stripped: boolean, 
+/**
+ * The list of variants in the enum.
+ *
+ * All of the corresponding [`Item`]s are of kind [`ItemEnum::Variant`]
+ */
+variants: Array<Id>, 
+/**
+ * `impl`s for the enum.
+ */
+impls: Array<Id>, };

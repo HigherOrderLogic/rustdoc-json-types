@@ -5,14 +5,16 @@ import type { Path } from "./Path";
 /**
  * A trait and potential HRTBs
  */
-export type PolyTrait = { trait: Path, 
+export type PolyTrait = { 
+/**
+ * The path to the trait.
+ */
+trait: Path, 
 /**
  * Used for Higher-Rank Trait Bounds (HRTBs)
  * ```text
  * dyn for<'a> Fn() -> &'a i32"
  *     ^^^^^^^
- *       |
- *       this part
  * ```
  */
 generic_params: Array<GenericParamDef>, };

@@ -3,4 +3,21 @@ import type { Generics } from "./Generics";
 import type { Id } from "./Id";
 import type { StructKind } from "./StructKind";
 
-export type Struct = { kind: StructKind, generics: Generics, impls: Array<Id>, };
+/**
+ * A `struct`.
+ */
+export type Struct = { 
+/**
+ * The kind of the struct (e.g. unit, tuple-like or struct-like) and the data specific to it,
+ * i.e. fields.
+ */
+kind: StructKind, 
+/**
+ * The generic parameters and where clauses on this struct.
+ */
+generics: Generics, 
+/**
+ * All impls (both of traits and inherent) for this struct.
+ * All of the corresponding [`Item`]s are of kind [`ItemEnum::Impl`].
+ */
+impls: Array<Id>, };

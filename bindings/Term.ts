@@ -2,4 +2,8 @@
 import type { Constant } from "./Constant";
 import type { Type } from "./Type";
 
+/**
+ * Either a type or a constant, usually stored as the right-hand side of an equation in places like
+ * [`TypeBinding`]
+ */
 export type Term = { "type": Type } | { "constant": Constant };

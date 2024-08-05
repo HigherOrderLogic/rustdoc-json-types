@@ -2,14 +2,32 @@
 import type { GenericArgs } from "./GenericArgs";
 import type { Id } from "./Id";
 
-export type Path = { name: string, id: Id, 
 /**
- * Generic arguments to the type
- * ```test
+ * A type that has a simple path to it. This is the kind of type of structs, unions, enums, etc.
+ */
+export type Path = { 
+/**
+ * The name of the type as declared, e.g. in
+ *
+ * ```rust
+ * mod foo {
+ *     struct Bar;
+ * }
+ * ```
+ *
+ * for `foo::Bar`, this field will be `Bar`.
+ */
+name: string, 
+/**
+ * The ID of the type.
+ */
+id: Id, 
+/**
+ * Generic arguments to the type.
+ *
+ * ```ignore (incomplete expression)
  * std::borrow::Cow<'static, str>
- *                 ^^^^^^^^^^^^^^
- *                 |
- *                 this part
+ * //              ^^^^^^^^^^^^^^
  * ```
  */
 args: GenericArgs | null, };

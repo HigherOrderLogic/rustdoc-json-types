@@ -25,7 +25,6 @@ export * from './ItemKind';
 export * from './ItemSummary';
 export * from './MacroKind';
 export * from './Module';
-export * from './OpaqueTy';
 export * from './Path';
 export * from './PolyTrait';
 export * from './Primitive';
