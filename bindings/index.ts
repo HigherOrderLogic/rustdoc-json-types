@@ -46,4 +46,4 @@ export * from './Variant';
 export * from './VariantKind';
 export * from './Visibility';
 export * from './WherePredicate';
-export * from './__version';
+export * from './__version__';
