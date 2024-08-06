@@ -5,7 +5,71 @@ import type { GenericArgs } from "./GenericArgs";
 import type { GenericBound } from "./GenericBound";
 import type { Path } from "./Path";
 
-export type Type = { "resolved_path": Path } | { "dyn_trait": DynTrait } | { "generic": string } | { "primitive": string } | { "function_pointer": FunctionPointer } | { "tuple": Array<Type> } | { "slice": Type } | { "array": { type: Type, len: string, } } | { "pat": { type: Type, __pat_unstable_do_not_use: string, } } | { "impl_trait": Array<GenericBound> } | "infer" | { "raw_pointer": { mutable: boolean, type: Type, } } | { "borrowed_ref": { lifetime: string | null, mutable: boolean, type: Type, } } | { "qualified_path": { name: string, args: GenericArgs, self_type: Type, 
+/**
+ * A type.
+ */
+export type Type = { "resolved_path": Path } | { "dyn_trait": DynTrait } | { "generic": string } | { "primitive": string } | { "function_pointer": FunctionPointer } | { "tuple": Array<Type> } | { "slice": Type } | { "array": { 
+/**
+ * The type of the contained element.
+ */
+type: Type, 
+/**
+ * The stringified expression that is the length of the array.
+ *
+ * Keep in mind that it's not guaranteed to match the actual source code of the expression.
+ */
+len: string, } } | { "pat": { 
+/**
+ * The base type, e.g. the `u32` in `u32 is 1..`
+ */
+type: Type, __pat_unstable_do_not_use: string, } } | { "impl_trait": Array<GenericBound> } | "infer" | { "raw_pointer": { 
+/**
+ * This is `true` for `*mut _` and `false` for `*const _`.
+ */
+mutable: boolean, 
+/**
+ * The type of the pointee.
+ */
+type: Type, } } | { "borrowed_ref": { 
+/**
+ * The name of the lifetime of the reference, if provided.
+ */
+lifetime: string | null, 
+/**
+ * This is `true` for `&mut i32` and `false` for `&i32`
+ */
+mutable: boolean, 
+/**
+ * The type of the pointee, e.g. the `i32` in `&'a mut i32`
+ */
+type: Type, } } | { "qualified_path": { 
+/**
+ * The name of the associated type in the parent type.
+ *
+ * ```ignore (incomplete expresssion)
+ * <core::array::IntoIter<u32, 42> as Iterator>::Item
+ * //                                            ^^^^
+ * ```
+ */
+name: string, 
+/**
+ * The generic arguments provided to the associated type.
+ *
+ * ```ignore (incomplete expression)
+ * <core::slice::IterMut<'static, u32> as BetterIterator>::Item<'static>
+ * //                                                          ^^^^^^^^^
+ * ```
+ */
+args: GenericArgs, 
+/**
+ * The type with which this type is associated.
+ *
+ * ```ignore (incomplete expression)
+ * <core::array::IntoIter<u32, 42> as Iterator>::Item
+ * // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
+self_type: Type, 
 /**
  * `None` iff this is an *inherent* associated type.
  */

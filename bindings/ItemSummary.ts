@@ -2,7 +2,9 @@
 import type { ItemKind } from "./ItemKind";
 
 /**
- * For external (not defined in the local crate) items, you don't get the same level of
+ * Information about an external (not defined in the local crate) [`Item`].
+ *
+ * For external items, you don't get the same level of
  * information. This struct should contain enough to generate a link/reference to the item in
  * question, or can be used by a tool that takes the json output of multiple crates to find
  * the actual item definition with all the relevant info.

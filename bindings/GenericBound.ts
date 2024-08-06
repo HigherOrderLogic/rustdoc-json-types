@@ -3,7 +3,14 @@ import type { GenericParamDef } from "./GenericParamDef";
 import type { Path } from "./Path";
 import type { TraitBoundModifier } from "./TraitBoundModifier";
 
-export type GenericBound = { "trait_bound": { trait: Path, 
+/**
+ * Either a trait bound or a lifetime bound.
+ */
+export type GenericBound = { "trait_bound": { 
+/**
+ * The full path to the trait.
+ */
+trait: Path, 
 /**
  * Used for Higher-Rank Trait Bounds (HRTBs)
  * ```text
@@ -13,4 +20,8 @@ export type GenericBound = { "trait_bound": { trait: Path,
  *          this part
  * ```
  */
-generic_params: Array<GenericParamDef>, modifier: TraitBoundModifier, } } | { "outlives": string } | { "use": Array<string> };
+generic_params: Array<GenericParamDef>, 
+/**
+ * The context for which a trait is supposed to be used, e.g. `const
+ */
+modifier: TraitBoundModifier, } } | { "outlives": string } | { "use": Array<string> };

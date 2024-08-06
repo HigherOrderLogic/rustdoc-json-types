@@ -5,7 +5,9 @@ import type { Item } from "./Item";
 import type { ItemSummary } from "./ItemSummary";
 
 /**
- * A `Crate` is the root of the emitted JSON blob. It contains all type/documentation information
+ * The root of the emitted JSON blob.
+ *
+ * It contains all type/documentation information
  * about the language items in the local crate, as well as info about external items to allow
  * tools to find or link to them.
  */

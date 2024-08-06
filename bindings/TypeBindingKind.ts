@@ -2,4 +2,7 @@
 import type { GenericBound } from "./GenericBound";
 import type { Term } from "./Term";
 
+/**
+ * The way in which an associate type/constant is bound.
+ */
 export type TypeBindingKind = { "equality": Term } | { "constraint": Array<GenericBound> };

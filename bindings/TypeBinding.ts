@@ -2,4 +2,25 @@
 import type { GenericArgs } from "./GenericArgs";
 import type { TypeBindingKind } from "./TypeBindingKind";
 
-export type TypeBinding = { name: string, args: GenericArgs, binding: TypeBindingKind, };
+/**
+ * Describes a bound applied to an associated type/constant.
+ *
+ * Example:
+ * ```text
+ * IntoIterator<Item = u32, IntoIter: Clone>
+ *              ^^^^^^^^^^  ^^^^^^^^^^^^^^^
+ * ```
+ */
+export type TypeBinding = { 
+/**
+ * The name of the associated type/constant.
+ */
+name: string, 
+/**
+ * Arguments provided to the associated type/constant.
+ */
+args: GenericArgs, 
+/**
+ * The kind of bound applied to the associated type/constant.
+ */
+binding: TypeBindingKind, };

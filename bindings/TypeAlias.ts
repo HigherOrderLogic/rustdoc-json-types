@@ -2,4 +2,15 @@
 import type { Generics } from "./Generics";
 import type { Type } from "./Type";
 
-export type TypeAlias = { type: Type, generics: Generics, };
+/**
+ * A type alias declaration, e.g. `type Pig = std::borrow::Cow<'static, str>;`
+ */
+export type TypeAlias = { 
+/**
+ * The type referred to by this alias.
+ */
+type: Type, 
+/**
+ * Information about the type parameters and `where` clauses of the alias.
+ */
+generics: Generics, };

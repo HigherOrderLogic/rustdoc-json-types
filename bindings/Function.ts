@@ -4,6 +4,22 @@ import type { Generics } from "./Generics";
 import type { Header } from "./Header";
 
 /**
- * Represents a function (including methods and other associated functions)
+ * A function declaration (including methods and other associated functions).
  */
-export type Function = { decl: FnDecl, generics: Generics, header: Header, has_body: boolean, };
+export type Function = { 
+/**
+ * Information about the function signature, or declaration.
+ */
+decl: FnDecl, 
+/**
+ * Information about the function’s type parameters and `where` clauses.
+ */
+generics: Generics, 
+/**
+ * Information about core properties of the function, e.g. whether it's `const`, its ABI, etc.
+ */
+header: Header, 
+/**
+ * Whether the function has a body, i.e. an implementation.
+ */
+has_body: boolean, };

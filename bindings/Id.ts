@@ -3,8 +3,8 @@
 /**
  * An opaque identifier for an item.
  *
- * It can be used to lookup in [Crate::index] or [Crate::paths] to resolve it
- * to an [Item].
+ * It can be used to lookup in [`Crate::index`] or [`Crate::paths`] to resolve it
+ * to an [`Item`].
  *
  * Id's are only valid within a single JSON blob. They cannot be used to
  * resolve references between the JSON output's for different crates.

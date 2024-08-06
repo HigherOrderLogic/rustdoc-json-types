@@ -2,4 +2,9 @@
 import type { Constant } from "./Constant";
 import type { Type } from "./Type";
 
+/**
+ * One argument in a list of generic arguments to a path segment.
+ *
+ * Part of [`GenericArgs`].
+ */
 export type GenericArg = { "lifetime": string } | { "type": Type } | { "const": Constant } | "infer";
