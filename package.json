@@ -17,8 +17,9 @@
   ],
   "scripts": {
     "clean": "rimraf bindings",
-    "build": "yarn run clean && cargo test && unbuild",
-    "prepack": "yarn run build"
+    "generate": "yarn run clean && cargo test",
+    "build": "unbuild",
+    "prepack": "yarn run generate && yarn run build"
   },
   "devDependencies": {
     "@types/node": "^20.11.28",
