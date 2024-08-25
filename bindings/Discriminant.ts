@@ -11,7 +11,7 @@ export type Discriminant = {
  * hexadecimal, and underscores), making it unsuitable to be machine
  * interpreted.
  *
- * In some cases, when the value is to complex, this may be `"{ _ }"`.
+ * In some cases, when the value is too complex, this may be `"{ _ }"`.
  * When this occurs is unstable, and may change without notice.
  */
 expr: string, 
