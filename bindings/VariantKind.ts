@@ -13,4 +13,4 @@ fields: Array<Id>,
 /**
  * Whether any variants have been removed from the result, due to being private or hidden.
  */
-fields_stripped: boolean, } };
+has_stripped_fields: boolean, } };

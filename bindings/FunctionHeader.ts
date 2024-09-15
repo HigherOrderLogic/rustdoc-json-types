@@ -4,19 +4,19 @@ import type { Abi } from "./Abi";
 /**
  * A set of fundamental properties of a function.
  */
-export type Header = { 
+export type FunctionHeader = { 
 /**
  * Is this function marked as `const`?
  */
-const: boolean, 
+is_const: boolean, 
 /**
  * Is this function unsafe?
  */
-unsafe: boolean, 
+is_unsafe: boolean, 
 /**
  * Is this function async?
  */
-async: boolean, 
+is_async: boolean, 
 /**
  * The ABI used by the function.
  */

@@ -4,6 +4,6 @@ import type { Type } from "./Type";
 
 /**
  * Either a type or a constant, usually stored as the right-hand side of an equation in places like
- * [`TypeBinding`]
+ * [`AssocItemConstraint`]
  */
 export type Term = { "type": Type } | { "constant": Constant };

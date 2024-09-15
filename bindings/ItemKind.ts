@@ -5,4 +5,4 @@
  *
  * Part of [`ItemSummary`].
  */
-export type ItemKind = "module" | "extern_crate" | "import" | "struct" | "struct_field" | "union" | "enum" | "variant" | "function" | "type_alias" | "constant" | "trait" | "trait_alias" | "impl" | "static" | "foreign_type" | "macro" | "proc_attribute" | "proc_derive" | "assoc_const" | "assoc_type" | "primitive" | "keyword";
+export type ItemKind = "module" | "extern_crate" | "use" | "struct" | "struct_field" | "union" | "enum" | "variant" | "function" | "type_alias" | "constant" | "trait" | "trait_alias" | "impl" | "static" | "extern_type" | "macro" | "proc_attribute" | "proc_derive" | "assoc_const" | "assoc_type" | "primitive" | "keyword";

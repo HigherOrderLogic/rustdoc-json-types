@@ -12,7 +12,7 @@ type: Type,
 /**
  * This is `true` for mutable statics, declared as `static mut X: T = f();`
  */
-mutable: boolean, 
+is_mutable: boolean, 
 /**
  * The stringified expression for the initial value.
  *

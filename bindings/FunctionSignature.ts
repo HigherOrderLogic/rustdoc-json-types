@@ -4,7 +4,7 @@ import type { Type } from "./Type";
 /**
  * The signature of a function.
  */
-export type FnDecl = { 
+export type FunctionSignature = { 
 /**
  * List of argument names and their type.
  *
@@ -23,4 +23,4 @@ output: Type | null,
  * fn printf(fmt: &str, ...);
  * ```
  */
-c_variadic: boolean, };
+is_c_variadic: boolean, };

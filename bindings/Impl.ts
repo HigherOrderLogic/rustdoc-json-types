@@ -47,9 +47,9 @@ items: Array<Id>,
 /**
  * Whether this is a negative impl (e.g. `!Sized` or `!Send`).
  */
-negative: boolean, 
+is_negative: boolean, 
 /**
  * Whether this is an impl that’s implied by the compiler
  * (for autotraits, e.g. `Send` or `Sync`).
  */
-synthetic: boolean, blanket_impl: Type | null, };
+is_synthetic: boolean, blanket_impl: Type | null, };
