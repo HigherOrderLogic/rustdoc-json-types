@@ -4,10 +4,10 @@
     "config:base",
     "schedule:weekly",
     "group:allNonMajor",
-    ":maintainLockFilesWeekly",
     ":rebaseStalePrs",
     ":semanticCommits"
   ],
+  "rangeStrategy": "bump",
   "labels": ["dependencies"],
   "js": {
     "labels": ["js"]
@@ -17,7 +17,7 @@
   },
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch", "lockFileMaintenance"],
+      "matchUpdateTypes": ["patch"],
       "automerge": true
     }
   ]
