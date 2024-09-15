@@ -59,7 +59,7 @@ default: Type | null,
  * is bound by `Trait`) is synthetic, because it was not originally in
  * the Rust source text.
  */
-synthetic: boolean, } } | { "const": { 
+is_synthetic: boolean, } } | { "const": { 
 /**
  * The type of the constant as declared.
  */

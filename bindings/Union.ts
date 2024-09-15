@@ -13,7 +13,7 @@ generics: Generics,
 /**
  * Whether any fields have been removed from the result, due to being private or hidden.
  */
-fields_stripped: boolean, 
+has_stripped_fields: boolean, 
 /**
  * The list of fields in the union.
  *

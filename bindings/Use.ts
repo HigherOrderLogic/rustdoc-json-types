@@ -4,7 +4,7 @@ import type { Id } from "./Id";
 /**
  * A `use` statement.
  */
-export type Import = { 
+export type Use = { 
 /**
  * The full path being imported.
  */
@@ -24,4 +24,4 @@ id: Id | null,
 /**
  * Whether this statement is a wildcard `use`, e.g. `use source::*;`
  */
-glob: boolean, };
+is_glob: boolean, };

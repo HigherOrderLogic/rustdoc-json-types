@@ -26,7 +26,7 @@ type: Type, __pat_unstable_do_not_use: string, } } | { "impl_trait": Array<Gener
 /**
  * This is `true` for `*mut _` and `false` for `*const _`.
  */
-mutable: boolean, 
+is_mutable: boolean, 
 /**
  * The type of the pointee.
  */
@@ -38,7 +38,7 @@ lifetime: string | null,
 /**
  * This is `true` for `&mut i32` and `false` for `&i32`
  */
-mutable: boolean, 
+is_mutable: boolean, 
 /**
  * The type of the pointee, e.g. the `i32` in `&'a mut i32`
  */

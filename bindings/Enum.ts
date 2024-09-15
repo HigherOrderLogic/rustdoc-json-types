@@ -13,7 +13,7 @@ generics: Generics,
 /**
  * Whether any variants have been removed from the result, due to being private or hidden.
  */
-variants_stripped: boolean, 
+has_stripped_variants: boolean, 
 /**
  * The list of variants in the enum.
  *
