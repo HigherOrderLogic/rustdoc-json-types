@@ -43,7 +43,7 @@ docs: string | null,
 /**
  * This mapping resolves [intra-doc links](https://github.com/rust-lang/rfcs/blob/master/text/1946-intra-rustdoc-links.md) from the docstring to their IDs
  */
-links: { [key: string]: Id }, 
+links: { [key in string]?: Id }, 
 /**
  * Stringified versions of the attributes on this item (e.g. `"#[inline]"`)
  */
