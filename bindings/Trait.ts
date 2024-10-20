@@ -17,9 +17,11 @@ is_auto: boolean,
  */
 is_unsafe: boolean, 
 /**
- * Whether the trait is [object safe](https://doc.rust-lang.org/reference/items/traits.html#object-safety).
+ * Whether the trait is [dyn compatible](https://doc.rust-lang.org/reference/items/traits.html#object-safety)[^1].
+ *
+ * [^1]: Formerly known as "object safe".
  */
-is_object_safe: boolean, 
+is_dyn_compatible: boolean, 
 /**
  * Associated [`Item`]s that can/must be implemented by the `impl` blocks.
  */
