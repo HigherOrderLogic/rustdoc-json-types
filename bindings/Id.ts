@@ -13,4 +13,4 @@
  * should treat them as opaque keys to lookup items, and avoid attempting
  * to parse them, or otherwise depend on any implementation details.
  */
-export type Id = string;
+export type Id = number;
