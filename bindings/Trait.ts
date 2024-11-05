@@ -9,7 +9,7 @@ import type { Id } from "./Id";
 export type Trait = { 
 /**
  * Whether the trait is marked `auto` and is thus implemented automatically
- * for all aplicable types.
+ * for all applicable types.
  */
 is_auto: boolean, 
 /**

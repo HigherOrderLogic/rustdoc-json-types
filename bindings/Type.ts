@@ -46,7 +46,7 @@ type: Type, } } | { "qualified_path": {
 /**
  * The name of the associated type in the parent type.
  *
- * ```ignore (incomplete expresssion)
+ * ```ignore (incomplete expression)
  * <core::array::IntoIter<u32, 42> as Iterator>::Item
  * //                                            ^^^^
  * ```
