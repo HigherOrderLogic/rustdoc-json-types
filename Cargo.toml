@@ -9,7 +9,7 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-serde = { version = "1.0.214", features = ["derive"] }
+serde = { version = "1.0.215", features = ["derive"] }
 ts-rs = { version = "10.0.0", features = ["serde-compat"] }
 
 [build-dependencies]
