@@ -18,4 +18,21 @@ is_mutable: boolean,
  *
  * It's not guaranteed that it'll match the actual source code for the initial value.
  */
-expr: string, };
+expr: string, 
+/**
+ * Is the static `unsafe`?
+ *
+ * This is only true if it's in an `extern` block, and not explicity marked
+ * as `safe`.
+ *
+ * ```rust
+ * unsafe extern {
+ *     static A: i32;      // unsafe
+ *     safe static B: i32; // safe
+ * }
+ *
+ * static C: i32 = 0;     // safe
+ * static mut D: i32 = 0; // safe
+ * ```
+ */
+is_unsafe: boolean, };
