@@ -1,1 +1,1 @@
-export const FORMAT_VERSION = 36
+export const FORMAT_VERSION = 37
