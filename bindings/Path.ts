@@ -7,17 +7,19 @@ import type { Id } from "./Id";
  */
 export type Path = { 
 /**
- * The name of the type as declared, e.g. in
+ * The path of the type.
+ *
+ * This will be the path that is *used* (not where it is defined), so
+ * multiple `Path`s may have different values for this field even if
+ * they all refer to the same item. e.g.
  *
  * ```rust
- * mod foo {
- *     struct Bar;
- * }
+ * pub type Vec1 = std::vec::Vec<i32>; // path: "std::vec::Vec"
+ * pub type Vec2 = Vec<i32>; // path: "Vec"
+ * pub type Vec3 = std::prelude::v1::Vec<i32>; // path: "std::prelude::v1::Vec"
  * ```
- *
- * for `foo::Bar`, this field will be `Bar`.
  */
-name: string, 
+path: string, 
 /**
  * The ID of the type.
  */
