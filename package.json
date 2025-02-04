@@ -22,7 +22,7 @@
     "prepack": "yarn run generate && yarn run build"
   },
   "devDependencies": {
-    "@types/node": "^22.10.10",
+    "@types/node": "^22.13.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1"
