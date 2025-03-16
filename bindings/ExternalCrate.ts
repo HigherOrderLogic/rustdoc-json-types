@@ -6,6 +6,13 @@
 export type ExternalCrate = { 
 /**
  * The name of the crate.
+ *
+ * Note: This is the [*crate* name][crate-name], which may not be the same as the
+ * [*package* name][package-name]. For example, for <https://crates.io/crates/regex-syntax>,
+ * this field will be `regex_syntax` (which uses an `_`, not a `-`).
+ *
+ * [crate-name]: https://doc.rust-lang.org/stable/cargo/reference/cargo-targets.html#the-name-field
+ * [package-name]: https://doc.rust-lang.org/stable/cargo/reference/manifest.html#the-name-field
  */
 name: string, 
 /**

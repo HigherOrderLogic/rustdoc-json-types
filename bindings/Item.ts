@@ -45,7 +45,9 @@ docs: string | null,
  */
 links: { [key in string]?: Id }, 
 /**
- * Stringified versions of the attributes on this item (e.g. `"#[inline]"`)
+ * Stringified versions of parsed attributes on this item.
+ * Essentially debug printed (e.g. `#[inline]` becomes something similar to `#[attr="Inline(Hint)"]`).
+ * Equivalent to the hir pretty-printing of attributes.
  */
 attrs: Array<string>, 
 /**
