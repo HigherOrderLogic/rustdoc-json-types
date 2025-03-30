@@ -31,4 +31,4 @@ inputs: Array<Type>,
 /**
  * The output type provided after the `->`, if present.
  */
-output: Type | null, } };
+output: Type | null, } } | "return_type_notation";
