@@ -9,10 +9,10 @@ export type Span = {
  */
 filename: string, 
 /**
- * Zero indexed Line and Column of the first character of the `Span`
+ * One indexed Line and Column of the first character of the `Span`.
  */
 begin: [number, number], 
 /**
- * Zero indexed Line and Column of the last character of the `Span`
+ * One indexed Line and Column of the last character of the `Span`.
  */
 end: [number, number], };
