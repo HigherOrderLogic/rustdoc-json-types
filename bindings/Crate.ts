@@ -3,6 +3,7 @@ import type { ExternalCrate } from "./ExternalCrate";
 import type { Id } from "./Id";
 import type { Item } from "./Item";
 import type { ItemSummary } from "./ItemSummary";
+import type { Target } from "./Target";
 
 /**
  * The root of the emitted JSON blob.
@@ -37,6 +38,10 @@ paths: { [key in Id]?: ItemSummary },
  * Maps `crate_id` of items to a crate name and html_root_url if it exists.
  */
 external_crates: { [key in number]?: ExternalCrate }, 
+/**
+ * Information about the target for which this documentation was generated
+ */
+target: Target, 
 /**
  * A single version number to be used in the future when making backwards incompatible changes
  * to the JSON output.
