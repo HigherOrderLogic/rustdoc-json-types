@@ -3,7 +3,7 @@ use std::{cell::LazyCell, env, fs::File, io::Write, path::Path};
 use regex::{Regex, RegexBuilder, Captures};
 
 const DERIVE_RE: LazyCell<Regex> = LazyCell::new(|| {
-    RegexBuilder::new(r#"#\[derive\((?<content>.+)\)\]"#)
+    RegexBuilder::new(r#"^\s*#\[derive\((?<content>.+)\)\]"#)
         .multi_line(true)
         .build()
         .unwrap()
