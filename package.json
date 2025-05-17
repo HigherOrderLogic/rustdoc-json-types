@@ -1,6 +1,6 @@
 {
   "name": "rustdoc-json-types",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "TS bindings for rustdoc-json-types",
   "repository": "HigherOrderLogic/rustdoc-json-types",
   "license": "MIT",
