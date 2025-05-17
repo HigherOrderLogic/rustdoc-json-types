@@ -6,7 +6,7 @@ import type { MacroKind } from "./MacroKind";
  */
 export type ProcMacro = { 
 /**
- * How this macro is supposed to be called: `foo!()`, `#[foo]` or `#[derive(ts_rs::TS,foo)]`
+ * How this macro is supposed to be called: `foo!()`, `#[foo]` or `#[derive(ts_rs::TS, foo)]`
  */
 kind: MacroKind, 
 /**
@@ -18,7 +18,7 @@ kind: MacroKind,
  * do:
  *
  * ```rust
- * #[derive(ts_rs::TS,Default)]
+ * #[derive(ts_rs::TS, Default)]
  * enum Option<T> {
  *     #[default]
  *     None,

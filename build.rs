@@ -1,4 +1,19 @@
-use std::{env, fs::File, io::Write, path::Path};
+use std::{cell::LazyCell, env, fs::File, io::Write, path::Path};
+
+use regex::{Regex, RegexBuilder, Captures};
+
+const DERIVE_RE: LazyCell<Regex> = LazyCell::new(|| {
+    RegexBuilder::new(r#"#\[derive\((?<content>.+)\)\]"#)
+        .multi_line(true)
+        .build()
+        .unwrap()
+});
+const PUB_MEMBER_RE: LazyCell<Regex> = LazyCell::new(|| {
+    RegexBuilder::new(r#"^\s*pub\s+(struct|enum)"#)
+        .multi_line(true)
+        .build()
+        .unwrap()
+});
 
 fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
@@ -9,7 +24,7 @@ fn main() {
 
     output.push_str(
         reqwest::blocking::get(
-            "https://raw.githubusercontent.com/aDotInTheVoid/rustdoc-types/trunk/src/lib.rs",
+            "https://raw.githubusercontent.com/rust-lang/rustdoc-types/trunk/src/lib.rs",
         )
         .unwrap()
         .text()
@@ -17,20 +32,28 @@ fn main() {
         .as_str(),
     );
 
+    output = DERIVE_RE.replace_all(&output, |caps: &Captures| {
+        let derive_content = caps.name("content").unwrap().as_str();
+        format!("#[derive(ts_rs::TS, {})]", derive_content)
+    }).to_string();
+
+    output = PUB_MEMBER_RE.replace_all(&output, |caps: &Captures| {
+        let pub_member = caps.get(0).unwrap().as_str();
+        format!("#[ts(export)]\n{}", pub_member)
+    }).to_string();
+
     output = output
         .replace("//!", "//")
-        .replace("#[derive(", "#[derive(ts_rs::TS,")
-        .replace("pub struct", "#[ts(export)] pub struct")
-        .replace("pub enum", "#[ts(export)] pub enum")
-        .replace("mod tests;", " mod tests {
+        .replace("mod tests;", "
+mod tests {
     use std::{fs::File, io::Write, path::Path};
     use super::FORMAT_VERSION;
 
     #[test]
     fn export_format_version() {
         let dest_path = Path::new(\"./bindings\").join(\"__version__.ts\");
-        let mut f = File::create(&dest_path).unwrap();
-        f.write_all(format!(\"export const FORMAT_VERSION = {}\", FORMAT_VERSION).as_bytes()).unwrap();
+        let mut f = File::create(&dest_path).expect(\"failed to create file\");
+        f.write_all(format!(\"export const FORMAT_VERSION = {}\", FORMAT_VERSION).as_bytes()).expect(\"failed to write to file\");
     }
 }");
 
