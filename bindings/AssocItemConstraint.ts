@@ -19,7 +19,7 @@ name: string,
 /**
  * Arguments provided to the associated type/constant.
  */
-args: GenericArgs, 
+args: GenericArgs | null, 
 /**
  * The kind of bound applied to the associated type/constant.
  */

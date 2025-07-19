@@ -22,7 +22,7 @@ expr: string,
 /**
  * Is the static `unsafe`?
  *
- * This is only true if it's in an `extern` block, and not explicity marked
+ * This is only true if it's in an `extern` block, and not explicitly marked
  * as `safe`.
  *
  * ```rust
