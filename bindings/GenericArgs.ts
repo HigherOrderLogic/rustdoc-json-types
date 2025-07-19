@@ -7,8 +7,8 @@ import type { Type } from "./Type";
  * A set of generic arguments provided to a path segment, e.g.
  *
  * ```text
- * std::option::Option::<u32>::None
- *                      ^^^^^
+ * std::option::Option<u32>
+ *                    ^^^^^
  * ```
  */
 export type GenericArgs = { "angle_bracketed": { 

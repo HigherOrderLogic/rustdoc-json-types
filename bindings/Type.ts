@@ -60,7 +60,7 @@ name: string,
  * //                                                          ^^^^^^^^^
  * ```
  */
-args: GenericArgs, 
+args: GenericArgs | null, 
 /**
  * The type with which this type is associated.
  *
