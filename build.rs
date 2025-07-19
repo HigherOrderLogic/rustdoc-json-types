@@ -32,6 +32,8 @@ fn main() {
         .as_str(),
     );
 
+    output = output.replace("serde_derive", "serde");
+
     output = DERIVE_RE.replace_all(&output, |caps: &Captures| {
         let derive_content = caps.name("content").unwrap().as_str();
         format!("#[derive(ts_rs::TS, {})]", derive_content)
