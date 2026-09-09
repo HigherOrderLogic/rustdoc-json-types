@@ -9,9 +9,9 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-serde = { version = "1.0.228", features = ["derive"] }
+serde = { version = "1.0.229", features = ["derive"] }
 ts-rs = { version = "12.0.1", features = ["serde-compat"] }
 
 [build-dependencies]
-regex = "1.12.3"
-reqwest = { version = "0.13.2", features = ["blocking"] }
+regex = "1.13.1"
+reqwest = { version = "0.13.5", features = ["blocking"] }
